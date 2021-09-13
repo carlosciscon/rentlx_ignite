@@ -20,7 +20,6 @@ class Specification{
             this.id = uuidV4();
         }
     }
-
 }
 
 export { Specification };

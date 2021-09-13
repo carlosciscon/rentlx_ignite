@@ -1,6 +1,6 @@
-import { AppError } from "../../../../errors/AppError";
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { UsersRepositoryInMemory } from "../../repositories/in-memory/UsersRepositoryInMemory";
+import { AppError } from "@errors/AppError";
+import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
+import { UsersRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UsersRepositoryInMemory";
 import { CreateUserUseCase } from "../createUser/CreateUserUseCase";
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase"
 
@@ -14,7 +14,7 @@ describe("Authenticate User", () => {
         authenticateUserUseCase = new AuthenticateUserUseCase(usersRepositoryInMemory);
         createUserUseCase = new CreateUserUseCase(usersRepositoryInMemory);
     })
-    it("should be able to authentica an user", async() => {
+    it("should be able to authenticate an user", async() => {
         const user: ICreateUserDTO = {
             driver_license: "000123",
             email: "user@test.com",
