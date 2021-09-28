@@ -1,5 +1,6 @@
 import { pathsToModuleNameMapper} from "ts-jest/utils"
 import { compilerOptions } from "./tsconfig.json"
+import 'reflect-metadata';
 
 export default {
   
