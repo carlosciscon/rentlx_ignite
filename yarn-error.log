@@ -1,8 +1,8 @@
 Arguments: 
-  /home/cciscon/.nvm/versions/node/v14.16.1/bin/node /home/cciscon/.nvm/versions/node/v14.16.1/bin/yarn add tsconfig-paths -D
+  /home/cciscon/.nvm/versions/node/v14.16.1/bin/node /home/cciscon/.nvm/versions/node/v14.16.1/bin/yarn add dayjs
 
 PATH: 
-  /home/cciscon/.vscode-server/bin/e7d7e9a9348e6a8cc8c03f877d39cb72e5dfb1ff/bin:/home/cciscon/.nvm/versions/node/v14.16.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Embarcadero/Studio/19.0/bin:/mnt/c/Users/Public/Documents/Embarcadero/Studio/19.0/Bpl:/mnt/c/Program Files (x86)/Embarcadero/Studio/19.0/bin64:/mnt/c/Users/Public/Documents/Embarcadero/Studio/19.0/Bpl/Win64:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files (x86)/HK-Software/IBExpert/:/mnt/c/Program Files (x86)/HK-Software/IBExpert/tools/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/CarlosEd/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/CarlosEd/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/CarlosEd/AppData/Local/GitHubDesktop/bin:/snap/bin
+  /home/cciscon/.vscode-server/bin/7f6ab5485bbc008386c4386d08766667e155244e/bin:/home/cciscon/.nvm/versions/node/v14.16.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Embarcadero/Studio/19.0/bin:/mnt/c/Users/Public/Documents/Embarcadero/Studio/19.0/Bpl:/mnt/c/Program Files (x86)/Embarcadero/Studio/19.0/bin64:/mnt/c/Users/Public/Documents/Embarcadero/Studio/19.0/Bpl/Win64:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files (x86)/HK-Software/IBExpert/:/mnt/c/Program Files (x86)/HK-Software/IBExpert/tools/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/CarlosEd/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/CarlosEd/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/CarlosEd/AppData/Local/GitHubDesktop/bin:/snap/bin
 
 Yarn version: 
   1.22.10
@@ -24,9 +24,10 @@ npm manifest:
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-      "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-      "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
-      "test": "jest"
+      "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+      "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
+      "test": "jest",
+      "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
     },
     "dependencies": {
       "bcrypt": "^5.0.1",
@@ -62,6 +63,7 @@ npm manifest:
       "prettier": "^2.2.1",
       "ts-jest": "^26.5.6",
       "ts-node-dev": "^1.1.6",
+      "tsconfig-paths": "^3.11.0",
       "typescript": "^4.2.3"
     }
   }
@@ -5827,6 +5829,16 @@ Lockfile:
       make-error "^1.1.1"
       source-map-support "^0.5.17"
       yn "3.1.1"
+  
+  tsconfig-paths@^3.11.0:
+    version "3.11.0"
+    resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.11.0.tgz#954c1fe973da6339c78e06b03ce2e48810b65f36"
+    integrity sha512-7ecdYDnIdmv639mmDwslG6KQg1Z9STTz1j7Gcz0xa+nshh/gKDAHcPxRbWOsA3SPp0tXP2leTcY9Kw+NAkfZzA==
+    dependencies:
+      "@types/json5" "^0.0.29"
+      json5 "^1.0.1"
+      minimist "^1.2.0"
+      strip-bom "^3.0.0"
   
   tsconfig-paths@^3.9.0:
     version "3.9.0"
